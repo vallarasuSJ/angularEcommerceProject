@@ -1,0 +1,132 @@
+<section style="background-color: grey">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img
+                src="https://hips.hearstapps.com/hmg-prod/images/bke060120colquiddity-001-1594841814.jpg"
+                alt="login form"
+                class="img-fluid"
+                style="width: 500px; height: 800px; border-radius: 18px"
+              />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                <form (ngSubmit)="onSubmit(signupForm)" #signupForm="ngForm">
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <p class="h1 fw-bold text-center">BicycleRiders</p>
+                  </div>
+
+                  <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px">
+                    Register your account
+                  </h5>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="text"
+                      id="ample17"
+                      class="form-control form-control-lg"
+                      name="name"
+                      ngModel
+                      required
+                      #modelName="ngModel"
+                      [ngClass]="modelName.invalid ? 'is-invalid' : ''"
+                    />
+
+                    <div *ngIf="modelName.invalid" class="invalid-feedback">
+                      please enter name
+                    </div>
+                    <label class="form-label" for="form2Example17"
+                      >Username</label
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="email"
+                      id="foExample17"
+                      class="form-control form-control-lg"
+                      name="email"
+                      ngModel
+                      required
+                      email
+                      #modelEmail="ngModel"
+                      [ngClass]="modelEmail.invalid ? 'is-invalid' : ''"
+                    />
+                    <div
+                      *ngIf="modelEmail.invalid && modelEmail.dirty"
+                      class="invalid-feedback"
+                    >
+                      please enter valid email
+                    </div>
+                    <label class="form-label" for="form2Example17"
+                      >Email address</label
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="foExample27"
+                      class="form-control form-control-lg"
+                      name="password"
+                      ngModel
+                      required
+                      password
+                      minlength="4"
+                      #modelPassword="ngModel"
+                      [ngClass]="modelPassword.invalid  ? 'is-invalid' : ''"
+                    />
+                    <!-- <p>{{ modelPassword.errors | json }}</p> -->
+                    <div class="invalid-feedback" *ngIf="modelPassword?.errors?.['minlength']">
+                      please enter atleast {{modelPassword?.errors?.['minlength']?.['requiredLength']}} length.
+                    </div>
+                    <div class="invalid-feedback" *ngIf="modelPassword.invalid && !modelPassword.dirty">
+                      Please enter password
+                    </div>
+                    <label class="form-label" for="form2Example27"
+                      >Password</label
+                    >
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="fds"
+                      class="form-control form-control-lg"
+                      name="confirmPassword"
+                      ngModel
+                      required
+                      password
+                      #modelConfirmPassword="ngModel"
+                      [ngClass]="
+                        modelConfirmPassword.invalid || modelConfirmPassword.value!==modelPassword.value? 'is-invalid' : ''
+                      "
+                    /> 
+                    <div class="invalid-feedback" *ngIf="modelConfirmPassword.invalid || modelPassword.value!==modelConfirmPassword.value">Password mismatch</div>
+                    <label class="form-label" for="form2Example27"
+                      >Confirm Password</label
+                    >
+                  </div>
+
+                  <div class="pt-1 mb-4">
+                    <button class="btn btn-dark btn-lg btn-block"  [disabled]="signupForm.invalid" type="submit" >
+                      SignUp
+                    </button>
+                  </div>
+
+                  <p class="mb-5 pb-lg-2" style="color: #393f81">
+                    Already have an account?
+                    <a routerLink="/login" style="color: #393f81">Login</a>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

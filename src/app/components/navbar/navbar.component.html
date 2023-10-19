@@ -1,0 +1,37 @@
+<div class="container-fluid  bg-dark text-white p-2">
+  <nav class="navbar fixed-top  navbar-expand-lg navbar-light bg-dark text-white">
+    <a class="navbar-brand text-white" href="#">BicycleRiders</a>
+    <button class="navbar-toggler" type="button"></button>
+
+    <div
+      class="collapse navbar-collapse justify-content-end bg-dark text-white"
+      id="navbarTogglerDemo02"
+    >
+      <div class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <div class="nav-item">
+          <a
+            class="nav-link text-white"
+            routerLink="/home"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}"
+            >Home</a
+          >
+        </div>
+        <div class="nav-item">
+          <a
+            class="nav-link text-white"
+            id="indexCartCount"
+            routerLink="/carts"
+            routerLinkActive="active"
+            >Carts {{getCount()>0?-getCount():''}}</a
+          >
+        </div>
+        <div class="nav-item">
+          <button class="btn text-white"  (click)="logoutHandler()">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,29 @@
+<div class="container-fluid p-5 mt-2"> 
+    <h1 >Carts</h1>
+    <table class="table table-bordered pt-3">
+      <thead>
+
+        <tr class="table-dark">
+          <th scope="col">Image</th>
+          <th scope="col">Product Name</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+          <th scope="col"> Total Price</th> 
+        </tr>
+      </thead>
+      <tbody *ngFor="let i of cart">  
+        <td><img src="{{i.image}}" style="width:100px; height: 100px;"></td> 
+        <td>{{i.title}}</td> 
+        <td>{{i.count}}</td> 
+        <td>{{i.price}}</td>
+        <td>{{i.total}}</td> 
+      </tbody>
+      
+    </table>
+    <div class="text-end fw-bold">Total:{{finalTotal}}</div>
+    <div class="container d-flex align-items-end flex-column">
+    <h5 id="total"></h5>
+    <button class="btn btn-primary p-2" (click)="checkout()">checkout</button>
+  </div>
+  </div>
+
